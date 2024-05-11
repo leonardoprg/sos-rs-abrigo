@@ -1,0 +1,29 @@
+require: rubocop-rails
+AllCops:
+  NewCops: enable
+  Exclude:
+    - "db/schema.rb"
+    - "db/seeds.rb"
+    - "lib/tasks/*"
+    - "**/Rakefile"
+    - "bin/**/*"
+    - "app/admin/**/*"
+    - "config/**/*"
+    - "db/schema.rb"
+    - "db/migrate/*"
+    - "tmp/**/*"
+    - "vendor/**/*"
+    - "docs/**/*"
+    - "node_modules/**/*"
+    - "Guardfile"
+    - "config.ru"
+Style/Documentation:
+  Enabled: false
+Lint/MissingSuper:
+  Enabled: false
+Rails/EnvironmentVariableAccess:
+  Exclude:
+    - "app/policies/application_policy.rb"
+Metrics/ClassLength:
+  Exclude:
+    - "test/**/*"
