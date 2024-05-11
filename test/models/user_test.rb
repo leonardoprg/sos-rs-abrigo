@@ -7,13 +7,13 @@ class UserTest < ActiveSupport::TestCase
     user = User.new(name: nil)
     user.valid?
 
-    assert_equal user.errors[:name], ["can't be blank"]
+    assert_equal user.errors[:name], ['não pode ficar em branco']
   end
 
   test 'validates work_shifts' do
     user = User.new(work_shifts: ['invalid'])
     user.valid?
 
-    assert_equal user.errors[:work_shifts], ['must be valid']
+    assert_equal user.errors[:work_shifts], ['precisa ser válido']
   end
 end

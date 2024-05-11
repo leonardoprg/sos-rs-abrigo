@@ -7,6 +7,6 @@ class ShelteredTest < ActiveSupport::TestCase
     sheltered = Sheltered.new
     assert_not sheltered.valid?
 
-    assert_equal sheltered.errors[:name], ["can't be blank"]
+    assert_equal sheltered.errors[:name], ['não pode ficar em branco']
   end
 end

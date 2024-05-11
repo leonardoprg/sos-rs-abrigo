@@ -6,6 +6,6 @@ class RoleTest < ActiveSupport::TestCase
   test 'validates name' do
     role = Role.new(name: nil)
     role.valid?
-    assert_equal role.errors[:name], ['can\'t be blank']
+    assert_equal role.errors[:name], ['não pode ficar em branco']
   end
 end
