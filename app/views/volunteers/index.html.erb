@@ -1,0 +1,27 @@
+<div class='pb-2'>
+  <span class='h3'>Voluntários</span>
+  <%= link_to 'Novo', new_volunteer_path, class: 'float-end btn btn-primary' %>
+</div>
+<hr />
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Nome</th>
+      <th scope="col">Telefone</th>
+      <th scope="col">Turnos</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @volunteers.each do |volunteer| %>
+      <tr>
+        <td><%= volunteer.name %></td>
+        <td><%= volunteer.phone_number %></td>
+        <td><%= volunteer.work_shifts %></td>
+        <td>
+          <%= link_to 'Editar', edit_volunteer_path(volunteer) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

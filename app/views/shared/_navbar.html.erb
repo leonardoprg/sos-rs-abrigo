@@ -12,7 +12,9 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Cadastros</a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Voluntários</a></li>
+            <li>
+              <%= link_to 'Voluntários', volunteers_path, class: 'dropdown-item' %>
+            </li>
             <li><a class="dropdown-item" href="#">Abrigados</a></li>
           </ul>
         </li>

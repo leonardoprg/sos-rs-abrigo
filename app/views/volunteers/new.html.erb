@@ -1,0 +1,8 @@
+<div class='pb-2'>
+  <span class='h3'>Novo Voluntário</span>
+</div>
+<hr />
+
+<%= form_for(@volunteer, url: volunteers_path) do |f| %>
+  <%= render 'form', f: f %>
+<% end %>
