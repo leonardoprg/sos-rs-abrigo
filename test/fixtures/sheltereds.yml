@@ -1,0 +1,18 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+paul:
+  organization: ulbra
+  name: Paul
+  document: 999.999.999-99
+  children_in_house: 1
+  adults_in_house: 2
+  animals_in_house: 3
+  house_status: partial_loss
+  birthdate: 2000-05-11
+  street: Av Brasil
+  street_integer: 222
+  district: Centro
+  city: Canoas
+  gender: male
+  government_assist: true
+  cadunico: true

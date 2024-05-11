@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_05_11_035558) do
+ActiveRecord::Schema[7.0].define(version: 2024_05_11_181331) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -31,6 +31,29 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_11_035558) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["organization_id"], name: "index_roles_on_organization_id"
+  end
+
+  create_table "sheltereds", force: :cascade do |t|
+    t.bigint "organization_id", null: false
+    t.string "name", null: false
+    t.string "document"
+    t.integer "children_in_house"
+    t.integer "adults_in_house"
+    t.integer "animals_in_house"
+    t.string "house_status"
+    t.date "birthdate"
+    t.string "street"
+    t.integer "street_integer"
+    t.string "district"
+    t.string "city"
+    t.string "gender"
+    t.text "special_needs"
+    t.text "medications"
+    t.boolean "government_assist"
+    t.boolean "cadunico"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["organization_id"], name: "index_sheltereds_on_organization_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -56,4 +79,5 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_11_035558) do
   end
 
   add_foreign_key "roles", "organizations"
+  add_foreign_key "sheltereds", "organizations"
 end
