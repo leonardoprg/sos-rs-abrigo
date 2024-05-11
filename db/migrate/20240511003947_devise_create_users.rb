@@ -5,7 +5,16 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.0]
     create_table :users do |t|
       t.references :organization, null: false
       t.string :name, null: false
+      t.string :document
       t.string :phone_number
+      t.string :work_shifts, array: true
+
+      # Address fields
+      t.string :street
+      t.string :street_number
+      t.string :district
+      t.string :city
+
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""

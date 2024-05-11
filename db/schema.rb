@@ -36,7 +36,13 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_11_035558) do
   create_table "users", force: :cascade do |t|
     t.bigint "organization_id", null: false
     t.string "name", null: false
+    t.string "document"
     t.string "phone_number"
+    t.string "work_shifts", array: true
+    t.string "street"
+    t.string "street_number"
+    t.string "district"
+    t.string "city"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
