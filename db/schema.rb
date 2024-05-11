@@ -11,6 +11,9 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2024_05_11_035558) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "organizations", force: :cascade do |t|
     t.string "name", null: false
     t.string "street"
@@ -22,15 +25,16 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_11_035558) do
   end
 
   create_table "roles", force: :cascade do |t|
-    t.integer "organization_id", null: false
+    t.bigint "organization_id", null: false
     t.string "name"
+    t.string "permissions", array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["organization_id"], name: "index_roles_on_organization_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.integer "organization_id", null: false
+    t.bigint "organization_id", null: false
     t.string "name", null: false
     t.string "phone_number"
     t.string "email", default: "", null: false
