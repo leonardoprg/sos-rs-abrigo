@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html data-bs-theme="dark">
+  <head>
+    <title>SosRsAbrigo</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
+  </head>
+
+  <body class='d-flex align-items-center py-4 bg-body-tertiary'>
+    <main class='container'>
+      <div class='p-5 rounded'>
+      <%= yield %>
+      </div>
+    </main>
+  </body>
+</html>
