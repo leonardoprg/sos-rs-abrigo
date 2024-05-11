@@ -1,0 +1,25 @@
+<div class='pb-2'>
+  <span class='h3'>Abrigados</span>
+  <%= link_to 'Novo', new_sheltered_path, class: 'float-end btn btn-primary' %>
+</div>
+<hr />
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Nome</th>
+      <th scope="col">Documento</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @sheltereds.each do |sheltered| %>
+      <tr>
+        <td><%= sheltered.name %></td>
+        <td><%= sheltered.document %></td>
+        <td>
+          <%= link_to 'Editar', edit_sheltered_path(sheltered) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

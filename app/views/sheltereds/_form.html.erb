@@ -1,0 +1,156 @@
+<%= form_for(@sheltered) do |f| %>
+  <div class='row'>
+    <div class='col-12'>
+      <span class='h5'>Dados pessoais</span>
+    </div>
+  </div>
+
+  <div class='row mt-3'>
+    <div class='col-12'>
+      <%= f.label :name, class: 'form-label' %>
+      <%= f.text_field :name, class: 'form-control', autofocus: true, placeholder: 'José da silva' %>
+    </div>
+  </div>
+
+  <div class='row mt-3'>
+    <div class='col-12'>
+      <%= f.label :document, class: 'form-label' %>
+      <%= f.text_field :document, class: 'form-control', placeholder: '000.000.000-00' %>
+    </div>
+  </div>
+
+  <div class='row mt-3'>
+    <div class='col-12'>
+      <%= f.label :birthdate, class: 'form-label' %>
+      <%= f.text_field :birthdate, class: 'form-control', placeholder: '04/02/1991' %>
+    </div>
+  </div>
+
+  <div class='row mt-3'>
+    <div class='col-12'>
+      <%= f.label :gender, class: 'form-label' %>
+      <%= f.text_field :gender, class: 'form-control', placeholder: '04/02/1991' %>
+    </div>
+  </div>
+
+  <hr />
+
+  <div class='row'>
+    <div class='col-12'>
+      <span class='h5'>Dados imóvel</span>
+    </div>
+  </div>
+
+  <div class='row mt-3'>
+    <div class='col-12'>
+      <%= f.label :children_in_house, class: 'form-label' %>
+      <%= f.text_field :children_in_house, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class='row mt-3'>
+    <div class='col-12'>
+      <%= f.label :adults_in_house, class: 'form-label' %>
+      <%= f.text_field :adults_in_house, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class='row mt-3'>
+    <div class='col-12'>
+      <%= f.label :animals_in_house, class: 'form-label' %>
+      <%= f.text_field :animals_in_house, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class='row mt-3'>
+    <div class='col-12'>
+      <%= f.label :house_status, class: 'form-label' %>
+      <%= f.text_field :house_status, class: 'form-control' %>
+    </div>
+  </div>
+
+  <hr />
+
+  <div class='row'>
+    <div class='col-12'>
+      <span class='h5'>Endereço</span>
+    </div>
+  </div>
+
+  <div class='row mt-3'>
+    <div class='col-12'>
+      <%= f.label :street, class: 'form-label' %>
+      <%= f.text_field :street, class: 'form-control', placeholder: 'Av. Dorival' %>
+    </div>
+  </div>
+
+  <div class='row mt-3'>
+    <div class='col-12'>
+      <%= f.label :street_number, class: 'form-label' %>
+      <%= f.text_field :street_number, class: 'form-control', placeholder: '333' %>
+    </div>
+  </div>
+
+  <div class='row mt-3'>
+    <div class='col-12'>
+      <%= f.label :district, class: 'form-label' %>
+      <%= f.text_field :district, class: 'form-control', placeholder: 'Pq. da matriz' %>
+    </div>
+  </div>
+
+  <div class='row mt-3'>
+    <div class='col-12'>
+      <%= f.label :district, class: 'form-label' %>
+      <%= f.text_field :district, class: 'form-control', placeholder: 'Pq. da matriz' %>
+    </div>
+  </div>
+
+  <div class='row mt-3'>
+    <div class='col-12'>
+      <%= f.label :city, class: 'form-label' %>
+      <%= f.text_field :city, class: 'form-control', placeholder: 'Cachoeirinha' %>
+    </div>
+  </div>
+
+  <hr />
+
+  <div class='row'>
+    <div class='col-12'>
+      <span class='h5'>Outras informações</span>
+    </div>
+  </div>
+
+  <div class='row mt-3'>
+    <div class='col-12'>
+      <%= f.check_box :government_assist %>
+      <%= f.label :government_assist, class: 'form-label' %>
+    </div>
+  </div>
+
+  <div class='row mt-3'>
+    <div class='col-12'>
+      <%= f.check_box :cadunico %>
+      <%= f.label :cadunico, class: 'form-label' %>
+    </div>
+  </div>
+
+  <div class='row mt-3'>
+    <div class='col-12'>
+      <%= f.label :special_needs, class: 'form-label' %>
+      <%= f.text_area :special_needs, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class='row mt-3'>
+    <div class='col-12'>
+      <%= f.label :medications, class: 'form-label' %>
+      <%= f.text_area :medications, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class='row mt-3 mb-5'>
+    <div class='col-12'>
+      <%= f.submit "Salvar", class: 'btn btn-primary w-100 py-2' %>
+    </div>
+  </div>
+<% end %>

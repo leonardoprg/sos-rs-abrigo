@@ -43,7 +43,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_11_181331) do
     t.string "house_status"
     t.date "birthdate"
     t.string "street"
-    t.integer "street_integer"
+    t.integer "street_number"
     t.string "district"
     t.string "city"
     t.string "gender"

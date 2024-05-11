@@ -10,7 +10,7 @@ paul:
   house_status: partial_loss
   birthdate: 2000-05-11
   street: Av Brasil
-  street_integer: 222
+  street_number: 222
   district: Centro
   city: Canoas
   gender: male

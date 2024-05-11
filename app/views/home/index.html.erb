@@ -1,1 +1,16 @@
-Welcome!
+<div class="row align-items-md-stretch">
+  <div class="col-md-6 pt-2">
+    <div class="h-100 p-5 bg-light border rounded-3">
+      <h2>
+        Número de voluntários: <%= current_user.organization.users.count %>
+      </h2>
+    </div>
+  </div>
+  <div class="col-md-6 pt-2">
+    <div class="h-100 p-5 bg-light border rounded-3">
+      <h2>
+        Número de desabrigados: <%= current_user.organization.sheltereds.count %>
+      </h2>
+    </div>
+  </div>
+</div>
