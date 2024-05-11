@@ -9,11 +9,4 @@ class UserTest < ActiveSupport::TestCase
 
     assert_equal user.errors[:name], ["can't be blank"]
   end
-
-  test 'validates role' do
-    user = User.new(role: nil)
-    user.valid?
-
-    assert_equal user.errors[:role], ["can't be blank"]
-  end
 end
