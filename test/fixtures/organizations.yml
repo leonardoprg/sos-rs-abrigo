@@ -1,15 +1,8 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  street: MyString
-  street_number: MyString
-  district: MyString
-  city: MyString
-
-two:
-  name: MyString
-  street: MyString
-  street_number: MyString
-  district: MyString
-  city: MyString
+ulbra:
+  name: Ulbra
+  street: Av. Farroupilha
+  street_number: 110
+  district: São José
+  city: Canoas

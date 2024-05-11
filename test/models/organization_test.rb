@@ -3,7 +3,10 @@
 require 'test_helper'
 
 class OrganizationTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test 'validates name' do
+    organization = Organization.new(name: nil)
+    organization.valid?
+
+    assert_equal organization.errors[:name], ["can't be blank"]
+  end
 end
