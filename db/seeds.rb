@@ -4,6 +4,7 @@ ActiveRecord::Base.transaction do
   admin_role = organization.roles.create!(name: 'Admin', permissions: [:all])
   user = organization.users.create!(
     name: 'Admin',
+    username: 'adminulbra',
     email: 'admin@ulbra.com',
     password: '123456',
     password_confirmation: '123456',
