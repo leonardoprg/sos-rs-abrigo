@@ -9,7 +9,8 @@ class User < ApplicationRecord
 
   before_validation :clean_work_shifts
   validates :name, presence: true
-  validates :username, presence: true, uniqueness: true, format: { with: /\A[a-zA-Z0-9]+\z/, message: :only_letters_and_numbers_allowed }
+  validates :username, presence: true, uniqueness: true,
+                       format: { with: /\A[a-zA-Z0-9]+\z/, message: :only_letters_and_numbers_allowed }
   validate :work_shifts_must_be_valid
 
   enum status: { admin: 0 }

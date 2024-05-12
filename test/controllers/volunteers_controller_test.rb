@@ -25,6 +25,7 @@ class VolunteersControllerTest < ActionDispatch::IntegrationTest
       post volunteers_url, params: {
         user: {
           name: 'John doe',
+          username: 'johndoe',
           email: 'john@doe.com',
           password: '123456',
           password_confirmation: '123456',
@@ -33,8 +34,7 @@ class VolunteersControllerTest < ActionDispatch::IntegrationTest
           street: 'Dorival',
           street_number: '123',
           district: 'Vila Mariana',
-          city: 'Cachoeirinha',
-          role_ids: [roles(:admin).id]
+          city: 'Cachoeirinha'
         }
       }
     end

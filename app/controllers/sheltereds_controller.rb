@@ -33,6 +33,7 @@ class ShelteredsController < ApplicationController
 
   private
 
+  # rubocop:disable Metrics/MethodLength
   def sheltered_params
     params.require(:sheltered).permit(
       :name,
@@ -50,7 +51,8 @@ class ShelteredsController < ApplicationController
       :government_assist,
       :cadunico,
       :special_needs,
-      :medications,
+      :medications
     )
   end
+  # rubocop:enable Metrics/MethodLength
 end
