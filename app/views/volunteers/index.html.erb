@@ -7,7 +7,7 @@
   <thead>
     <tr>
       <th scope="col">Nome</th>
-      <th scope="col">Telefone</th>
+      <th scope="col">Atribuições</th>
       <th scope="col">Turnos</th>
       <th scope="col"></th>
     </tr>
@@ -16,7 +16,7 @@
     <% @volunteers.each do |volunteer| %>
       <tr>
         <td><%= volunteer.name %></td>
-        <td><%= volunteer.phone_number %></td>
+        <td><%= volunteer.roles.map(&:name).join(', ') %></td>
         <td><%= volunteer.work_shifts&.map { |v| t(v, scope: [:activerecord, :attributes, :work_shifts]) }&.join(', ') %></td>
         <td>
           <%= link_to 'Editar', edit_volunteer_path(volunteer) %>
