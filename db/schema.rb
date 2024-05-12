@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_05_12_162022) do
+ActiveRecord::Schema[7.0].define(version: 2024_05_12_175014) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -89,6 +89,19 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_12_162022) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  create_table "volunteer_work_schedules", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "work_schedule_id", null: false
+    t.string "work_shift"
+    t.bigint "role_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["role_id"], name: "index_volunteer_work_schedules_on_role_id"
+    t.index ["user_id", "work_schedule_id", "role_id", "work_shift"], name: "index_volunteer_work_schedules_user_id_unique", unique: true
+    t.index ["user_id"], name: "index_volunteer_work_schedules_on_user_id"
+    t.index ["work_schedule_id"], name: "index_volunteer_work_schedules_on_work_schedule_id"
+  end
+
   create_table "work_schedules", force: :cascade do |t|
     t.bigint "organization_id", null: false
     t.date "scheduled_date", null: false
@@ -102,5 +115,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_12_162022) do
   add_foreign_key "role_users", "users"
   add_foreign_key "roles", "organizations"
   add_foreign_key "sheltereds", "organizations"
+  add_foreign_key "volunteer_work_schedules", "roles"
+  add_foreign_key "volunteer_work_schedules", "users"
+  add_foreign_key "volunteer_work_schedules", "work_schedules"
   add_foreign_key "work_schedules", "organizations"
 end
