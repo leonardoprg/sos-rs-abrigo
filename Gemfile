@@ -33,6 +33,8 @@ gem 'jbuilder'
 gem 'redis', '~> 4.0'
 
 gem 'devise', '4.9.4'
+
+gem 'pundit', '~> 2.3'
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 

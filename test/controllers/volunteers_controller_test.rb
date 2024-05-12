@@ -33,7 +33,8 @@ class VolunteersControllerTest < ActionDispatch::IntegrationTest
           street: 'Dorival',
           street_number: '123',
           district: 'Vila Mariana',
-          city: 'Cachoeirinha'
+          city: 'Cachoeirinha',
+          role_id: roles(:admin).id
         }
       }
     end

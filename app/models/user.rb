@@ -13,6 +13,7 @@ class User < ApplicationRecord
   enum status: { admin: 0 }
 
   belongs_to :organization
+  belongs_to :role
 
   private
 

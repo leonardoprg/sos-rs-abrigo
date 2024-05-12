@@ -3,3 +3,4 @@
 admin:
   organization: ulbra
   name: Admin
+  permissions: [all]

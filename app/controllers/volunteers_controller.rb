@@ -48,7 +48,8 @@ class VolunteersController < ApplicationController
       :city,
       :email,
       :password,
-      :password_confirmation
+      :password_confirmation,
+      :role_id
     )
   end
   # rubocop:enable Metrics/MethodLength

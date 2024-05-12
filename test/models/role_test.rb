@@ -8,4 +8,11 @@ class RoleTest < ActiveSupport::TestCase
     role.valid?
     assert_equal role.errors[:name], ['não pode ficar em branco']
   end
+
+  test 'validates permissions' do
+    role = Role.new(permissions: ['invalid'])
+    role.valid?
+
+    assert_equal role.errors[:permissions], ['precisa ser válido']
+  end
 end

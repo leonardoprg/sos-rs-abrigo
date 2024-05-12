@@ -4,6 +4,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.0]
   def change
     create_table :users do |t|
       t.references :organization, null: false
+      t.references :role, null: false
       t.string :name, null: false
       t.string :document
       t.string :phone_number

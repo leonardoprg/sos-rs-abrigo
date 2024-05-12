@@ -12,12 +12,16 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Cadastros</a>
           <ul class="dropdown-menu">
-            <li>
-              <%= link_to 'Voluntários', volunteers_path, class: 'dropdown-item' %>
-            </li>
-            <li>
-              <%= link_to 'Abrigados', sheltereds_path, class: 'dropdown-item' %>
-            </li>
+            <% if policy(User).index? %>
+              <li>
+                <%= link_to 'Voluntários', volunteers_path, class: 'dropdown-item' %>
+              </li>
+            <% end %>
+            <% if policy(Sheltered).index? %>
+              <li>
+                <%= link_to 'Abrigados', sheltereds_path, class: 'dropdown-item' %>
+              </li>
+            <% end %>
           </ul>
         </li>
       </ul>

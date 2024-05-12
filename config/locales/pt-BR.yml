@@ -36,6 +36,10 @@ pt-BR:
           attributes:
             work_shifts:
               must_be_valid: precisa ser válido
+        role:
+          attributes:
+            permissions:
+              must_be_valid: precisa ser válido
       messages:
         record_invalid: 'A validação falhou: %{errors}'
         restrict_dependent_destroy:
