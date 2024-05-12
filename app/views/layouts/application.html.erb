@@ -14,7 +14,8 @@
     <%= render 'shared/navbar' %>
     <main class='container'>
       <div class='pt-5 rounded'>
-      <%= yield %>
+        <%= render 'shared/flash' %>
+        <%= yield %>
       </div>
     </main>
   </body>

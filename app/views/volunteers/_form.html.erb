@@ -13,6 +13,13 @@
 
 <div class='row mt-3'>
   <div class='col-12'>
+    <%= f.label :username, class: 'form-label' %>
+    <%= f.text_field :username, class: 'form-control', autofocus: true, placeholder: 'josesilva' %>
+  </div>
+</div>
+
+<div class='row mt-3'>
+  <div class='col-12'>
     <%= f.label :email, class: 'form-label' %>
     <%= f.email_field :email, class: 'form-control', autofocus: true, placeholder: 'jose@silva.com' %>
   </div>

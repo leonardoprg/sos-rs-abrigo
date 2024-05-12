@@ -21,6 +21,7 @@ pt-BR:
         medications: Medicações
       user:
         name: Nome
+        username: Nome de Usuário
         email: E-Mail
         password: Senha
         password_confirmation: Confirmação de Senha
@@ -46,10 +47,13 @@ pt-BR:
             permissions:
               must_be_valid: precisa ser válido
       messages:
+        only_letters_and_numbers_allowed: precisa conter apenas letras e números
         record_invalid: 'A validação falhou: %{errors}'
         restrict_dependent_destroy:
           has_one: Não é possível excluir o registro pois existe um %{record} dependente
           has_many: Não é possível excluir o registro pois existem %{record} dependentes
+    models:
+      user: Voluntário
   date:
     abbr_day_names:
     - dom

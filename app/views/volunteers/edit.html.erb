@@ -3,6 +3,8 @@
 </div>
 <hr />
 
+<%= render 'shared/error_messages', resource: @volunteer %>
+
 <%= form_for(@volunteer, url: volunteer_path(@volunteer)) do |f| %>
   <%= render 'form', f: f %>
 <% end %>
