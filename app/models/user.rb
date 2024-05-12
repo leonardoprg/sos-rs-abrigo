@@ -9,6 +9,7 @@ class User < ApplicationRecord
 
   before_validation :clean_work_shifts
   validates :name, presence: true
+  validates :username, presence: true, uniqueness: true, format: { with: /\A[a-zA-Z0-9]+\z/, message: :only_letters_and_numbers_allowed }
   validate :work_shifts_must_be_valid
 
   enum status: { admin: 0 }
@@ -29,5 +30,15 @@ class User < ApplicationRecord
     return if work_shifts.blank?
 
     self.work_shifts = work_shifts.compact_blank
+  end
+
+  # https://github.com/heartcombo/devise/wiki/How-To:-Allow-users-to-sign-in-with-something-other-than-their-email-address
+  def email_required?
+    false
+  end
+
+  # https://github.com/heartcombo/devise/wiki/How-To:-Allow-users-to-sign-in-with-something-other-than-their-email-address
+  def email_changed?
+    false
   end
 end
