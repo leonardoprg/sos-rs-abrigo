@@ -1,4 +1,10 @@
-<div class='row'>
+<div class='row mt-3'>
+  <div class='col-12'>
+    <span class='h5'>Dados básicos</span>
+  </div>
+</div>
+
+<div class='row mt-3'>
   <div class='col-12'>
     <%= f.label :name, class: 'form-label' %>
     <%= f.text_field :name, class: 'form-control', autofocus: true, placeholder: 'José da silva' %>
@@ -42,6 +48,14 @@
   </div>
 </div>
 
+<hr />
+
+<div class='row mt-3'>
+  <div class='col-12'>
+    <span class='h5'>Endereço</span>
+  </div>
+</div>
+
 <div class='row mt-3'>
   <div class='col-12'>
     <%= f.label :street, class: 'form-label' %>
@@ -65,15 +79,29 @@
 
 <div class='row mt-3'>
   <div class='col-12'>
-    <%= f.label :district, class: 'form-label' %>
-    <%= f.text_field :district, class: 'form-control', placeholder: 'Pq. da matriz' %>
+    <%= f.label :city, class: 'form-label' %>
+    <%= f.text_field :city, class: 'form-control', placeholder: 'Cachoeirinha' %>
+  </div>
+</div>
+
+<hr />
+
+<div class='row mt-3'>
+  <div class='col-12'>
+    <span class='h5'>Trabalho</span>
   </div>
 </div>
 
 <div class='row mt-3'>
   <div class='col-12'>
-    <%= f.label :city, class: 'form-label' %>
-    <%= f.text_field :city, class: 'form-control', placeholder: 'Cachoeirinha' %>
+    <%= f.collection_check_boxes(
+      :work_shifts,
+      Hash[User::ALLOWED_WORK_SHIFTS.map { |v| [t(v, scope: [:activerecord, :attributes, :work_shifts]),v] }], :last, :first) do |b| %>
+      <div class="form-check form-check-inline">
+        <%= b.check_box class: 'form-check-input', checked: f.object.work_shifts&.include?(b.value.to_s) %>
+        <%= b.label class: 'form-check-label' %>
+      </div>
+    <% end %>
   </div>
 </div>
 

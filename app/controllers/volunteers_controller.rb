@@ -27,7 +27,7 @@ class VolunteersController < ApplicationController
     if @volunteer.update(user_params)
       redirect_to volunteers_path
     else
-      render :new
+      render :edit
     end
   end
 
@@ -49,7 +49,8 @@ class VolunteersController < ApplicationController
       :email,
       :password,
       :password_confirmation,
-      :role_id
+      :role_id,
+      work_shifts: []
     )
   end
   # rubocop:enable Metrics/MethodLength
