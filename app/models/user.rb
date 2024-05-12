@@ -15,7 +15,12 @@ class User < ApplicationRecord
   enum status: { admin: 0 }
 
   belongs_to :organization
-  belongs_to :role
+  has_many :role_users, dependent: :destroy
+  has_many :roles, through: :role_users
+
+  def permissions
+    roles.map(&:permissions).flatten.uniq.compact_blank
+  end
 
   private
 

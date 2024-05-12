@@ -24,6 +24,6 @@ class ShelteredPolicy < ApplicationPolicy
   private
 
   def access?
-    admin? || user.role.permissions.map(&:to_sym).include?(:sheltereds)
+    admin? || user.permissions.map(&:to_sym).include?(:sheltereds)
   end
 end

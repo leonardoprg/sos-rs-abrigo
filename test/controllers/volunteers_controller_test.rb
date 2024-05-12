@@ -34,7 +34,7 @@ class VolunteersControllerTest < ActionDispatch::IntegrationTest
           street_number: '123',
           district: 'Vila Mariana',
           city: 'Cachoeirinha',
-          role_id: roles(:admin).id
+          role_ids: [roles(:admin).id]
         }
       }
     end

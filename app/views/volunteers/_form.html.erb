@@ -112,6 +112,25 @@
   </div>
 </div>
 
+<div class='row mt-3'>
+  <div class='col-12'>
+    <span class='h5'>Atribuições</span>
+  </div>
+</div>
+
+<div class='row mt-3'>
+  <div class='col-12'>
+    <%= f.collection_check_boxes(
+      :role_ids,
+      Hash[current_user.organization.roles.map { |v| [v.name,v.id] }], :last, :first) do |b| %>
+      <div class="form-check form-check-inline">
+        <%= b.check_box class: 'form-check-input', checked: f.object.role_ids.include?(b.value) %>
+        <%= b.label class: 'form-check-label' %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
 <div class='row mt-3 mb-5'>
   <div class='col-12'>
     <%= f.submit "Salvar", class: 'btn btn-primary w-100 py-2' %>

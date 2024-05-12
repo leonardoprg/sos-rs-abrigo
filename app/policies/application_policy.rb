@@ -37,7 +37,7 @@ class ApplicationPolicy
   end
 
   def admin?
-    user.role.permissions.map(&:to_sym).include?(:all)
+    user.permissions.map(&:to_sym).include?(:all)
   end
 
   class Scope

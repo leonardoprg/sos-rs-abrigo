@@ -24,6 +24,6 @@ class UserPolicy < ApplicationPolicy
   private
 
   def access?
-    admin? || user.role.permissions.map(&:to_sym).include?(:volunteers)
+    admin? || user.permissions.map(&:to_sym).include?(:volunteers)
   end
 end
