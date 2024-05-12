@@ -2,6 +2,8 @@
 pt-BR:
   activerecord:
     attributes:
+      work_schedule:
+        scheduled_date: Data
       sheltered:
         name: Nome
         document: Documento
@@ -55,6 +57,7 @@ pt-BR:
     models:
       sheltered: Abrigado
       user: Voluntário
+      workschedule: Escala
   date:
     abbr_day_names:
     - dom

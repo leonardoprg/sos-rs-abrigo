@@ -1,0 +1,25 @@
+<div class='pb-2'>
+  <span class='h3'>Escala</span>
+  <%= link_to 'Novo', new_work_schedule_path, class: 'float-end btn btn-primary' %>
+</div>
+<hr />
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Data</th>
+      <th scope="col">Voluntários</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @work_schedules.each do |work_schedule| %>
+      <tr>
+        <td><%= l(work_schedule.scheduled_date) %></td>
+        <td><%= 10 %></td>
+        <td>
+          <%= link_to 'Editar', edit_work_schedule_path(work_schedule) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

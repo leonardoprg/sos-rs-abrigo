@@ -5,6 +5,7 @@ class Role < ApplicationRecord
     all
     volunteers
     sheltereds
+    work_schedules
   ].freeze
 
   belongs_to :organization

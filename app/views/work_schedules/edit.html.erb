@@ -1,0 +1,8 @@
+<div class='pb-2'>
+  <span class='h3'>Editar - <%= l(@work_schedule.scheduled_date) %></span>
+</div>
+<hr />
+
+<%= render 'shared/error_messages', resource: @work_schedule %>
+
+<%= render 'form' %>
