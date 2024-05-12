@@ -94,6 +94,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_12_162022) do
     t.date "scheduled_date", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["organization_id", "scheduled_date"], name: "index_work_schedules_on_organization_id_and_scheduled_date", unique: true
     t.index ["organization_id"], name: "index_work_schedules_on_organization_id"
   end
 

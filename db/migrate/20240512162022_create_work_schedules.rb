@@ -6,5 +6,7 @@ class CreateWorkSchedules < ActiveRecord::Migration[7.0]
 
       t.timestamps
     end
+
+    add_index :work_schedules, [:organization_id, :scheduled_date], unique: true
   end
 end
