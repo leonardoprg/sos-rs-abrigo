@@ -25,6 +25,12 @@
           </ul>
         </li>
       </ul>
+      <hr class="m-0 text-bg-primary" />
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <%= link_to 'Sair', destroy_user_session_path, class: 'nav-link', data: { turbo_method: :delete } %>
+        </li>
+      </ul>
     </div>
   </div>
 </nav>
