@@ -17,7 +17,7 @@
       <tr>
         <td><%= volunteer.name %></td>
         <td><%= volunteer.phone_number %></td>
-        <td><%= volunteer.work_shifts %></td>
+        <td><%= volunteer.work_shifts&.map { |v| t(v, scope: [:activerecord, :attributes, :work_shifts]) }&.join(', ') %></td>
         <td>
           <%= link_to 'Editar', edit_volunteer_path(volunteer) %>
         </td>

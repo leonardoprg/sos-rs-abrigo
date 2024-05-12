@@ -30,6 +30,11 @@ pt-BR:
         street_number: Número
         district: Bairro
         city: Cidade
+        work_shifts: Turnos de trabalho
+      work_shifts:
+        morning: Manhã
+        afternoon: Tarde
+        night: Noite
     errors:
       models:
         user:

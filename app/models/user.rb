@@ -7,6 +7,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  before_validation :clean_work_shifts
   validates :name, presence: true
   validate :work_shifts_must_be_valid
 
@@ -19,8 +20,14 @@ class User < ApplicationRecord
 
   def work_shifts_must_be_valid
     return if work_shifts.blank?
-    return unless (work_shifts - ALLOWED_WORK_SHIFTS).any?
+    return unless (work_shifts.map(&:to_sym) - ALLOWED_WORK_SHIFTS).any?
 
     errors.add(:work_shifts, :must_be_valid)
+  end
+
+  def clean_work_shifts
+    return if work_shifts.blank?
+
+    self.work_shifts = work_shifts.compact_blank
   end
 end
