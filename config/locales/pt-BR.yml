@@ -2,6 +2,12 @@
 pt-BR:
   activerecord:
     attributes:
+      volunteer_work_schedule:
+        user_id: Voluntário
+        user: Voluntário
+        role_id: Atribuição
+        role: Atribuição
+        work_shift: Turno
       work_schedule:
         scheduled_date: Data
       sheltered:
@@ -38,6 +44,15 @@ pt-BR:
         morning: Manhã
         afternoon: Tarde
         night: Noite
+      genders:
+        male: Masculino
+        female: Feminino
+        uninformed: Não informado
+      house_statuses:
+        partial_loss: Perda parcial
+        total_loss: Perda total
+        flooded: Inundada
+        other: Outro
     errors:
       models:
         user:
@@ -58,6 +73,7 @@ pt-BR:
       sheltered: Abrigado
       user: Voluntário
       workschedule: Escala
+      volunteerworkschedule: Escala - Voluntário
   date:
     abbr_day_names:
     - dom

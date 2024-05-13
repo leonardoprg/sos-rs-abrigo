@@ -6,45 +6,15 @@
         value: f.object.scheduled_date ? l(f.object.scheduled_date) : nil,
         class: 'form-control',
         autofocus: true,
-        placeholder: '99/99/9999'
+        placeholder: '99.99.9999',
+        data: { controller: 'mask', 'mask-type-value': 'date' }
       %>
     </div>
-  </div>
-  <hr />
-  <% if @work_schedule.persisted? %>
-  <div class='row'>
-      <div class='col-12'>
-        <span class='h5'>Voluntários</span>
-      </div>
-    </div>
-
-    <div class='row mt-3'>
-      <div class='col-12'>
-        <table class='table table-bordered'>
-          <tbody>
-            <% current_user.organization.roles.each do |role| %>
-              <tr>
-                <td class='col-1'>
-                  <b><%= role.name %></b>
-                </td>
-              </tr>
-              <% User::ALLOWED_WORK_SHIFTS.each do |work_shift| %>
-                <tr>
-                  <td></td>
-                  <td>
-                    <%= t(work_shift, scope: [:activerecord, :attributes, :work_shifts]) %>
-                  </td>
-                </tr>
-              <% end %>
-            <% end %>
-          </tbody>
-        </table>
-      </div>
-    <% end %>
   </div>
   <div class='row mt-3 mb-5'>
     <div class='col-12'>
       <%= f.submit "Salvar", class: 'btn btn-primary w-100 py-2' %>
     </div>
   </div>
+  <hr />
 <% end %>

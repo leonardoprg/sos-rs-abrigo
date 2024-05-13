@@ -4,5 +4,7 @@ Rails.application.routes.draw do
 
   resources :volunteers
   resources :sheltereds
-  resources :work_schedules
+  resources :work_schedules do
+    resources :volunteer_work_schedules
+  end
 end

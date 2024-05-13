@@ -23,6 +23,11 @@ class User < ApplicationRecord
     roles.map(&:permissions).flatten.uniq.compact_blank
   end
 
+  def volunteer_display_data
+    ws = work_shifts&.map { |v| I18n.t(v, scope: %i[activerecord attributes work_shifts]) }&.join(', ')
+    "#{name} - #{roles.map(&:name).join(', ')} - #{ws}"
+  end
+
   private
 
   def work_shifts_must_be_valid

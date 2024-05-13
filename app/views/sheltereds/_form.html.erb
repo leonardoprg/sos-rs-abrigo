@@ -22,14 +22,14 @@
   <div class='row mt-3'>
     <div class='col-12'>
       <%= f.label :birthdate, class: 'form-label' %>
-      <%= f.text_field :birthdate, class: 'form-control', placeholder: '04/02/1991' %>
+      <%= f.text_field :birthdate, class: 'form-control', placeholder: '04.02.1991', data: { controller: 'mask', 'mask-type-value': 'date' } %>
     </div>
   </div>
 
   <div class='row mt-3'>
     <div class='col-12'>
       <%= f.label :gender, class: 'form-label' %>
-      <%= f.text_field :gender, class: 'form-control' %>
+      <%= f.select :gender, Sheltered.genders.keys.map { |v| [t(v, scope: [:activerecord, :attributes, :genders]),v] }, { include_blank: 'Selecione o gênero' }, class: 'form-control' %>
     </div>
   </div>
 
@@ -65,7 +65,7 @@
   <div class='row mt-3'>
     <div class='col-12'>
       <%= f.label :house_status, class: 'form-label' %>
-      <%= f.text_field :house_status, class: 'form-control' %>
+      <%= f.select :house_status, Sheltered.house_statuses.keys.map { |v| [t(v, scope: [:activerecord, :attributes, :house_statuses]),v] }, { include_blank: 'Selecione a situação' }, class: 'form-control' %>
     </div>
   </div>
 

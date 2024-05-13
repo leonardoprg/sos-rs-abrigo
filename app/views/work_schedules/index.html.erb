@@ -15,7 +15,7 @@
     <% @work_schedules.each do |work_schedule| %>
       <tr>
         <td><%= l(work_schedule.scheduled_date) %></td>
-        <td><%= 10 %></td>
+        <td><%= work_schedule.volunteer_work_schedules.count %></td>
         <td>
           <%= link_to 'Editar', edit_work_schedule_path(work_schedule) %>
         </td>

@@ -3,8 +3,8 @@
 class Sheltered < ApplicationRecord
   belongs_to :organization
 
-  validates :name, presence: true
+  validates :name, :birthdate, presence: true
 
-  enum house_status: { total_loss: 0, partial_loss: 1, no_damage: 2 }
-  enum gender: { male: 0, female: 1, uninformed: 2 }
+  enum house_status: { total_loss: 'total_loss', partial_loss: 'partial_loss', flooded: 'flooded', other: 'other' }
+  enum gender: { male: 'male', female: 'female', uninformed: 'uninformed' }
 end

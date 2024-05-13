@@ -1,8 +1,52 @@
 <div class='pb-2'>
-  <span class='h3'>Editar - <%= l(@work_schedule.scheduled_date) %></span>
+  <span class='h4'><%= l(@work_schedule.scheduled_date) %></span>
+  <%= link_to 'Add Voluntário', new_work_schedule_volunteer_work_schedule_path(@work_schedule), class: 'float-end btn btn-primary' %>
 </div>
 <hr />
 
 <%= render 'shared/error_messages', resource: @work_schedule %>
 
 <%= render 'form' %>
+
+<div class='row'>
+  <div class='col-12'>
+    <span class='h5'>Voluntários</span>
+  </div>
+</div>
+
+<div class='row mt-3'>
+  <div class='col-12'>
+    <table class='table table-bordered'>
+      <tbody>
+        <% current_user.organization.roles.each do |role| %>
+          <tr>
+            <td class='col-1'>
+              <b><%= role.name %></b>
+            </td>
+            <td></td>
+            <td></td>
+          </tr>
+          <% User::ALLOWED_WORK_SHIFTS.each do |work_shift| %>
+            <tr>
+              <td></td>
+              <td class='col-1'>
+                <b><%= t(work_shift, scope: [:activerecord, :attributes, :work_shifts]) %></b>
+              </td>
+              <td></td>
+            </tr>
+            <% @work_schedule.volunteer_work_schedules.joins(:user).where(work_shift: work_shift, role: role).each do |volunteer_work_schedule| %>
+              <tr>
+                <td></td>
+                <td></td>
+                <td>
+                  <%= volunteer_work_schedule.user.volunteer_display_data %>
+                  <%= link_to 'Remover', work_schedule_volunteer_work_schedule_path(@work_schedule, volunteer_work_schedule), method: :delete, data: { turbo_method: :delete }, class: 'float-end' %>
+                </td>
+              </tr>
+            <% end %>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
