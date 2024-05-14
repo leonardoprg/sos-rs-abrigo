@@ -10,4 +10,7 @@ Os voluntários são capazes de acessar o sistema e efetuar tarefas de acordo co
 
 #### Gestão dos abrigados
 Cadastro unificado das pessoas abrigadas.
-Centralização das necessidades especias, tamanho de roupas, medicações, etc..
+Centralização das necessidades especias, tamanho de roupas, medicações, etc...
+
+
+##### Instruções para contribuir neste [url](CONTRIBUTING.md)
