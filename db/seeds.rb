@@ -8,6 +8,7 @@ ActiveRecord::Base.transaction do
     email: 'admin@ulbra.com',
     password: '123456',
     password_confirmation: '123456',
+    phone_number: '51999999999',
   )
   RoleUser.create!(role: admin_role, user: user)
 end
