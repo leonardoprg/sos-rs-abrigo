@@ -9,6 +9,15 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
     <%= favicon_link_tag asset_path('favicon.ico') %>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-startup-image" href="startup.png">
+    <link rel="apple-touch-icon" href="<%= image_path('icon.png') %>"/>
+    <link rel="apple-touch-icon-precomposed" sizes="128x128" href="<%= image_path('icon.png') %>">
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="shortcut icon" sizes="196x196" href="<%= image_path('icon.png') %>">
+    <link rel="shortcut icon" sizes="128x128" href="<%= image_path('icon.png') %>">
   </head>
 
   <body>
