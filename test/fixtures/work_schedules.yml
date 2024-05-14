@@ -2,4 +2,4 @@
 
 ulbra_today:
   organization: ulbra
-  scheduled_date: <%= Date.today.to_s %>
+  scheduled_date: <%= Time.zone.today %>
