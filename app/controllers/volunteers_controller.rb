@@ -62,6 +62,6 @@ class VolunteersController < ApplicationController
     return if params[:user][:role_ids].nil?
 
     volunteer.role_users.destroy_all
-    params[:user][:role_ids].compact_blank.each { |role_id| volunteer.role_users.create!(role_id: role_id) }
+    params[:user][:role_ids].compact_blank.each { |role_id| volunteer.role_users.create!(role_id:) }
   end
 end

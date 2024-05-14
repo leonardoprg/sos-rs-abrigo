@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_05_12_175014) do
+ActiveRecord::Schema[7.0].define(version: 2024_05_13_233931) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -62,7 +62,9 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_12_175014) do
     t.boolean "cadunico"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "sheltered_id"
     t.index ["organization_id"], name: "index_sheltereds_on_organization_id"
+    t.index ["sheltered_id"], name: "index_sheltereds_on_sheltered_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -115,6 +117,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_12_175014) do
   add_foreign_key "role_users", "users"
   add_foreign_key "roles", "organizations"
   add_foreign_key "sheltereds", "organizations"
+  add_foreign_key "sheltereds", "sheltereds"
   add_foreign_key "volunteer_work_schedules", "roles"
   add_foreign_key "volunteer_work_schedules", "users"
   add_foreign_key "volunteer_work_schedules", "work_schedules"

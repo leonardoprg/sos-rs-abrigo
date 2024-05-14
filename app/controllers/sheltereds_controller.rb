@@ -2,7 +2,7 @@
 
 class ShelteredsController < ApplicationController
   def index
-    @sheltereds = current_user.organization.sheltereds
+    @sheltereds = current_user.organization.sheltereds.order(:name)
   end
 
   def new
@@ -42,6 +42,7 @@ class ShelteredsController < ApplicationController
       :gender,
       :children_in_house,
       :adults_in_house,
+      :sheltered_id,
       :animals_in_house,
       :house_status,
       :street,
