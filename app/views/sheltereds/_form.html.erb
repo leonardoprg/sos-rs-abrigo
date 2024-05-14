@@ -162,6 +162,27 @@
     </div>
   </div>
 
+  <hr />
+
+  <div class='row'>
+    <div class='col-12'>
+      <span class='h5'>Saída</span>
+    </div>
+  </div>
+
+  <div class='row mt-3'>
+    <div class='col-12'>
+      <%= f.label :departure_date, class: 'form-label' %>
+      <%= f.text_field :departure_date,
+        value: f.object.departure_date ? l(f.object.departure_date) : nil,
+        class: 'form-control',
+        autofocus: true,
+        placeholder: '99.99.9999',
+        data: { controller: 'mask', 'mask-type-value': 'date' }
+      %>
+    </div>
+  </div>
+
   <div class='row mt-3 mb-5'>
     <div class='col-12'>
       <%= f.submit "Salvar", class: 'btn btn-primary w-100 py-2' %>

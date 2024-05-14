@@ -54,7 +54,8 @@ class ShelteredsController < ApplicationController
       :special_needs,
       :medications,
       :disabilities,
-      :phone_number
+      :phone_number,
+      :departure_date
     )
   end
   # rubocop:enable Metrics/MethodLength

@@ -30,6 +30,7 @@ pt-BR:
         special_needs: Necessidades especiais
         medications: Medicações
         sheltered_id: Dependente de
+        departure_date: Data de saída
       user:
         name: Nome
         username: Nome de Usuário
