@@ -87,7 +87,7 @@
 <div class='row mt-3'>
   <div class='col-12'>
     <%= f.label :city, class: 'form-label' %>
-    <%= f.text_field :city, class: 'form-control', placeholder: 'Cachoeirinha' %>
+    <%= f.select :city, Sheltered.cities.keys.map { |v| [v.humanize, v] }, { include_blank: 'Selecione a cidade' }, class: 'form-control' %>
   </div>
 </div>
 
