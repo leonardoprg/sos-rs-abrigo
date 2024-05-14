@@ -9,5 +9,5 @@ class Sheltered < ApplicationRecord
 
   enum house_status: { total_loss: 'total_loss', partial_loss: 'partial_loss', flooded: 'flooded', other: 'other' }
   enum gender: { male: 'male', female: 'female', uninformed: 'uninformed' }
-  enum city: { cachoeirinha: 'cachoeirinha', porto_alegre: 'porto alegre', canoas: 'canoas' }
+  enum city: { cachoeirinha: 'cachoeirinha', porto_alegre: 'porto alegre', canoas: 'canoas', gravatai: 'gravatai' }
 end
