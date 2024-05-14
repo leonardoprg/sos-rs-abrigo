@@ -1,16 +1,34 @@
 <div class="row align-items-md-stretch">
-  <div class="col-md-6 pt-2">
+  <div class="col-md-12 pt-2">
     <div class="h-100 p-5 bg-light border rounded-3">
-      <h2>
-        Número de voluntários: <%= current_user.organization.users.count %>
-      </h2>
+      <h5>
+        Número total de desabrigados: <%= current_user.organization.sheltereds.where(departure_date: nil).count %>
+      </h5>
+      <h5>
+        Número total de famílias: <%= current_user.organization.sheltereds.where.not(sheltered_id: nil).pluck(:sheltered_id).uniq.size %>
+      </h5>
     </div>
   </div>
-  <div class="col-md-6 pt-2">
+
+  <div class="col-md-12 pt-2">
     <div class="h-100 p-5 bg-light border rounded-3">
-      <h2>
-        Número de desabrigados: <%= current_user.organization.sheltereds.count %>
-      </h2>
+      <h5>
+        Abrigados por cidade:
+      </h5>
+      <% current_user.organization.sheltereds.group(:city).count.each do |city, count| %>
+        <%= city.nil? ? 'Não especificado': city.humanize %>: <%= count %> <br/>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="col-md-12 pt-2">
+    <div class="h-100 p-5 bg-light border rounded-3">
+      <h5>
+        Abrigados por gênero:
+      </h5>
+      <% current_user.organization.sheltereds.group(:gender).count.each do |gender, count| %>
+        <%= gender.nil? ? 'Não especificado': t(gender, scope: [:activerecord, :attributes, :genders]) %>: <%= count %> <br/>
+      <% end %>
     </div>
   </div>
 </div>
