@@ -16,4 +16,11 @@ class UserTest < ActiveSupport::TestCase
 
     assert_equal user.errors[:work_shifts], ['precisa ser válido']
   end
+
+  test 'validates phone_number' do
+    user = User.new(phone_number: '5199118877')
+    user.valid?
+
+    assert_equal user.errors[:phone_number], ['já está em uso']
+  end
 end

@@ -8,7 +8,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   before_validation :clean_work_shifts
-  validates :name, presence: true
+  before_validation :set_username
+  validates :name, :phone_number, presence: true
+  validates :phone_number, uniqueness: true
   validates :username, presence: true, uniqueness: true,
                        format: { with: /\A[a-zA-Z0-9]+\z/, message: :only_letters_and_numbers_allowed }
   validate :work_shifts_must_be_valid
@@ -51,5 +53,11 @@ class User < ApplicationRecord
   # https://github.com/heartcombo/devise/wiki/How-To:-Allow-users-to-sign-in-with-something-other-than-their-email-address
   def email_changed?
     false
+  end
+
+  def set_username
+    return if phone_number.blank?
+
+    self.username = phone_number.scan(/\d+/).join
   end
 end
