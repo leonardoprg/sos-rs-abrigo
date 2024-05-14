@@ -11,7 +11,7 @@ cd sos-rs-abrigo
 bundle
 yarn
 bundle exec rails db:setup
-.bin/dev
+bin/dev
 ```
 
 4. Make the changes you feel necessary
