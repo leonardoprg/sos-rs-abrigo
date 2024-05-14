@@ -108,6 +108,7 @@ pt-BR:
     - sábado
     formats:
       default: "%d/%m/%Y"
+      field: "%d.%m.%Y"
       long: "%d de %B de %Y"
       short: "%d de %B"
     month_names:

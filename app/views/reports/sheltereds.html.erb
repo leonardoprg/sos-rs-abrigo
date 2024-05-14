@@ -1,0 +1,37 @@
+<table class="table">
+  <tbody>
+    <tr>
+      <th scope="col">Nome do abrigo: <%= current_user.organization.name %></th>
+      <th scope="col">Responsável pelo preenchimento: <%= current_user.name %></th>
+      <th scope="col">Data: <%= l(Time.zone.today) %></th>
+    </tr>
+  </tbody>
+</table>
+</table>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Nome</th>
+      <th scope="col">Data Nasc</th>
+      <th scope="col">Documento</th>
+      <th scope="col">Cidade origem</th>
+      <th scope="col">Contato responsavel</th>
+      <th scope="col">Pessoa com deficiencia</th>
+      <th scope="col">Necessidades específicas</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @sheltereds.each do |sheltered| %>
+      <tr>
+        <td><%= sheltered.name %></td>
+        <td><%= sheltered.birthdate ? l(sheltered.birthdate) : nil %></td>
+        <td><%= sheltered.document %></td>
+        <td><%= sheltered.city %></td>
+        <td><%= sheltered.sheltered&.name %></td>
+        <td><%=  %></td>
+        <td><%= sheltered.special_needs %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

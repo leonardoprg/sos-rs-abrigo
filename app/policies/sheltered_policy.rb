@@ -2,28 +2,22 @@
 
 class ShelteredPolicy < ApplicationPolicy
   def index?
-    access?
+    admin? || user.permissions.map(&:to_sym).include?(:sheltereds_list)
   end
 
   def new?
-    access?
+    admin? || user.permissions.map(&:to_sym).include?(:sheltereds_create)
   end
 
   def edit?
-    access?
+    admin? || user.permissions.map(&:to_sym).include?(:sheltereds_update)
   end
 
   def update?
-    access?
+    admin? || user.permissions.map(&:to_sym).include?(:sheltereds_update)
   end
 
   def create?
-    access?
-  end
-
-  private
-
-  def access?
-    admin? || user.permissions.map(&:to_sym).include?(:sheltereds)
+    admin? || user.permissions.map(&:to_sym).include?(:sheltereds_create)
   end
 end

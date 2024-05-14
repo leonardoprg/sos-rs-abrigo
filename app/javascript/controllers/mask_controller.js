@@ -12,7 +12,6 @@ export default class extends Controller {
   static values = { type: String };
 
   connect() {
-    console.log(this.typeValue)
     IMask(this.element, maskOptions[this.typeValue]);
   }
 }

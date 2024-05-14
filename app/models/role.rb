@@ -3,9 +3,18 @@
 class Role < ApplicationRecord
   PERMISSIONS = %i[
     all
-    volunteers
-    sheltereds
-    work_schedules
+    volunteers_list
+    volunteers_create
+    volunteers_update
+    volunteers_destroy
+    sheltereds_list
+    sheltereds_create
+    sheltereds_update
+    sheltereds_destroy
+    work_schedules_list
+    work_schedules_create
+    work_schedules_update
+    work_schedules_destroy
   ].freeze
 
   belongs_to :organization

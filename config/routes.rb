@@ -7,4 +7,7 @@ Rails.application.routes.draw do
   resources :work_schedules do
     resources :volunteer_work_schedules
   end
+  resources :reports, only: [] do
+    get :sheltereds, on: :collection
+  end
 end
