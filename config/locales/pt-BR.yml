@@ -12,6 +12,8 @@ pt-BR:
         scheduled_date: Data
       sheltered:
         name: Nome
+        phone_number: Telefone
+        disabilities: Deficiências
         document: Documento
         birthdate: Data de nascimento
         gender: Gênero

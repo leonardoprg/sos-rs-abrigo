@@ -21,6 +21,13 @@
 
   <div class='row mt-3'>
     <div class='col-12'>
+      <%= f.label :phone_number, class: 'form-label' %>
+      <%= f.text_field :phone_number, class: 'form-control', placeholder: '(51) 99999-8888' %>
+    </div>
+  </div>
+
+  <div class='row mt-3'>
+    <div class='col-12'>
       <%= f.label :birthdate, class: 'form-label' %>
       <%= f.text_field :birthdate, value: f.object.birthdate ? l(f.object.birthdate, format: :field) : nil, class: 'form-control', placeholder: '04.02.1991', data: { controller: 'mask', 'mask-type-value': 'date' } %>
     </div>
@@ -138,6 +145,13 @@
     <div class='col-12'>
       <%= f.label :special_needs, class: 'form-label' %>
       <%= f.text_area :special_needs, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class='row mt-3'>
+    <div class='col-12'>
+      <%= f.label :disabilities, class: 'form-label' %>
+      <%= f.text_area :disabilities, class: 'form-control' %>
     </div>
   </div>
 

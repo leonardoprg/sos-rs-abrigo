@@ -52,7 +52,9 @@ class ShelteredsController < ApplicationController
       :government_assist,
       :cadunico,
       :special_needs,
-      :medications
+      :medications,
+      :disabilities,
+      :phone_number
     )
   end
   # rubocop:enable Metrics/MethodLength
