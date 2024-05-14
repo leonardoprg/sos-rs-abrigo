@@ -5,7 +5,7 @@ class Sheltered < ApplicationRecord
   belongs_to :sheltered, optional: true
   has_many :sheltereds, dependent: :nullify
 
-  validates :name, :birthdate, presence: true
+  validates :name, presence: true
 
   enum house_status: { total_loss: 'total_loss', partial_loss: 'partial_loss', flooded: 'flooded', other: 'other' }
   enum gender: { male: 'male', female: 'female', uninformed: 'uninformed' }
