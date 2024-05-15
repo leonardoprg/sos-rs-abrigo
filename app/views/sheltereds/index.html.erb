@@ -7,7 +7,6 @@
   <thead>
     <tr>
       <th scope="col">Nome</th>
-      <th scope="col">Documento</th>
       <th scope="col"></th>
     </tr>
   </thead>
@@ -15,8 +14,7 @@
     <% @sheltereds.each do |sheltered| %>
       <tr>
         <td><%= sheltered.name %></td>
-        <td><%= sheltered.document %></td>
-        <td>
+        <td class='col-1'>
           <%= link_to 'Editar', edit_sheltered_path(sheltered) %>
         </td>
       </tr>
