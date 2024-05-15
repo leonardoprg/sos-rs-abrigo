@@ -5,7 +5,7 @@
         Número total de desabrigados: <%= current_user.organization.sheltereds.active.count %>
       </h5>
       <h5>
-        Número total de famílias: <%= current_user.organization.sheltereds.active.where.not(sheltered_id: nil).pluck(:sheltered_id).uniq.size %>
+        Número total de famílias: <%= family_count %>
       </h5>
     </div>
   </div>
