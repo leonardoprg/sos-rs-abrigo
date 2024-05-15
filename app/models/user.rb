@@ -56,7 +56,7 @@ class User < ApplicationRecord
   end
 
   def set_username
-    return if phone_number.blank?
+    return if phone_number.blank? || username.present?
 
     self.username = phone_number.scan(/\d+/).join
   end
