@@ -4,12 +4,12 @@ require 'test_helper'
 
 class ShelteredMedicationLogTest < ActiveSupport::TestCase
   test 'should be valid' do
-    sheltered_medication_log = FactoryBot.create(:sheltered_medication_log)
+    sheltered_medication_log = sheltered_medication_logs(:paul_paracetamol_one)
     assert sheltered_medication_log.valid?
   end
 
   test 'should require single intake data' do
-    sheltered_medication_log = FactoryBot.create(:sheltered_medication_log)
+    sheltered_medication_log = sheltered_medication_logs(:paul_paracetamol_one)
     sheltered_medication_log.sheltered_medication = nil
     assert_not sheltered_medication_log.valid?
     assert_includes(
