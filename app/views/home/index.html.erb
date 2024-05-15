@@ -13,17 +13,6 @@
   <div class="col-md-12 pt-2">
     <div class="h-100 p-5 bg-light border rounded-3">
       <h5>
-        Abrigados por cidade:
-      </h5>
-      <% current_user.organization.sheltereds.active.group(:city).count.each do |city, count| %>
-        <%= city.nil? ? 'Não especificado': city.humanize %>: <%= count %> <br/>
-      <% end %>
-    </div>
-  </div>
-
-  <div class="col-md-12 pt-2">
-    <div class="h-100 p-5 bg-light border rounded-3">
-      <h5>
         Abrigados por gênero:
       </h5>
       <% current_user.organization.sheltereds.active.group(:gender).count.each do |gender, count| %>
