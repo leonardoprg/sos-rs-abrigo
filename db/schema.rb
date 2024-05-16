@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_05_15_132634) do
+ActiveRecord::Schema[7.0].define(version: 2024_05_16_223320) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -48,6 +48,16 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_15_132634) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["organization_id"], name: "index_roles_on_organization_id"
+  end
+
+  create_table "sheltered_medical_logs", force: :cascade do |t|
+    t.bigint "organization_id", null: false
+    t.bigint "sheltered_id", null: false
+    t.text "description", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["organization_id"], name: "index_sheltered_medical_logs_on_organization_id"
+    t.index ["sheltered_id"], name: "index_sheltered_medical_logs_on_sheltered_id"
   end
 
   create_table "sheltered_medication_logs", force: :cascade do |t|
@@ -158,6 +168,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_15_132634) do
   add_foreign_key "role_users", "roles"
   add_foreign_key "role_users", "users"
   add_foreign_key "roles", "organizations"
+  add_foreign_key "sheltered_medical_logs", "organizations"
+  add_foreign_key "sheltered_medical_logs", "sheltereds"
   add_foreign_key "sheltered_medication_logs", "medicins"
   add_foreign_key "sheltered_medication_logs", "organizations"
   add_foreign_key "sheltered_medication_logs", "sheltered_medications"

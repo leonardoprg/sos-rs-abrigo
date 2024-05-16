@@ -1,0 +1,6 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+paul_medical_log:
+  organization: ulbra
+  sheltered: paul
+  description: Teve febre de 38o durante a noite
