@@ -3,6 +3,7 @@ class CreateMedication < ActiveRecord::Migration[7.0]
     create_table :sheltered_medications do |t|
       t.references :medicin, null: false, foreign_key: true
       t.references :sheltered, null: false, foreign_key: true
+      t.references :organization, null: false, foreign_key: true
       t.integer :quantity
       t.string :unit
       t.integer :frequency, optional: true

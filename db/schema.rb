@@ -51,6 +51,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_15_132634) do
   end
 
   create_table "sheltered_medication_logs", force: :cascade do |t|
+    t.bigint "organization_id", null: false
     t.bigint "sheltered_medication_id"
     t.bigint "medicin_id"
     t.bigint "sheltered_id"
@@ -59,6 +60,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_15_132634) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["medicin_id"], name: "index_sheltered_medication_logs_on_medicin_id"
+    t.index ["organization_id"], name: "index_sheltered_medication_logs_on_organization_id"
     t.index ["sheltered_id"], name: "index_sheltered_medication_logs_on_sheltered_id"
     t.index ["sheltered_medication_id"], name: "index_sheltered_medication_logs_on_sheltered_medication_id"
   end
@@ -66,6 +68,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_15_132634) do
   create_table "sheltered_medications", force: :cascade do |t|
     t.bigint "medicin_id", null: false
     t.bigint "sheltered_id", null: false
+    t.bigint "organization_id", null: false
     t.integer "quantity"
     t.string "unit"
     t.integer "frequency"
@@ -74,6 +77,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_15_132634) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["medicin_id"], name: "index_sheltered_medications_on_medicin_id"
+    t.index ["organization_id"], name: "index_sheltered_medications_on_organization_id"
     t.index ["sheltered_id"], name: "index_sheltered_medications_on_sheltered_id"
   end
 
@@ -155,9 +159,11 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_15_132634) do
   add_foreign_key "role_users", "users"
   add_foreign_key "roles", "organizations"
   add_foreign_key "sheltered_medication_logs", "medicins"
+  add_foreign_key "sheltered_medication_logs", "organizations"
   add_foreign_key "sheltered_medication_logs", "sheltered_medications"
   add_foreign_key "sheltered_medication_logs", "sheltereds"
   add_foreign_key "sheltered_medications", "medicins"
+  add_foreign_key "sheltered_medications", "organizations"
   add_foreign_key "sheltered_medications", "sheltereds"
   add_foreign_key "sheltereds", "organizations"
   add_foreign_key "sheltereds", "sheltereds"

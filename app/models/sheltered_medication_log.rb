@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class ShelteredMedicationLog < ApplicationRecord
+  belongs_to :organization
   belongs_to :sheltered_medication, optional: true
   belongs_to :medicin, optional: true
   belongs_to :sheltered, optional: true

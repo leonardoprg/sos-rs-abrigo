@@ -3,6 +3,7 @@
 class ShelteredMedication < ApplicationRecord
   belongs_to :medicin
   belongs_to :sheltered
+  belongs_to :organization
 
   has_many :sheltered_medication_logs, dependent: :destroy
 
