@@ -7,4 +7,6 @@ class Organization < ApplicationRecord
   has_many :roles, dependent: :destroy
   has_many :sheltereds, dependent: :destroy
   has_many :work_schedules, dependent: :destroy
+  has_many :sheltered_medications, dependent: :destroy
+  has_many :sheltered_medication_logs, dependent: :destroy
 end

@@ -10,9 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_05_14_234831) do
+ActiveRecord::Schema[7.0].define(version: 2024_05_15_132634) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "medicins", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "leaflet"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_medicins_on_name", unique: true
+  end
 
   create_table "organizations", force: :cascade do |t|
     t.string "name", null: false
@@ -40,6 +48,37 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_14_234831) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["organization_id"], name: "index_roles_on_organization_id"
+  end
+
+  create_table "sheltered_medication_logs", force: :cascade do |t|
+    t.bigint "organization_id", null: false
+    t.bigint "sheltered_medication_id"
+    t.bigint "medicin_id"
+    t.bigint "sheltered_id"
+    t.integer "quantity"
+    t.string "unit"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["medicin_id"], name: "index_sheltered_medication_logs_on_medicin_id"
+    t.index ["organization_id"], name: "index_sheltered_medication_logs_on_organization_id"
+    t.index ["sheltered_id"], name: "index_sheltered_medication_logs_on_sheltered_id"
+    t.index ["sheltered_medication_id"], name: "index_sheltered_medication_logs_on_sheltered_medication_id"
+  end
+
+  create_table "sheltered_medications", force: :cascade do |t|
+    t.bigint "medicin_id", null: false
+    t.bigint "sheltered_id", null: false
+    t.bigint "organization_id", null: false
+    t.integer "quantity"
+    t.string "unit"
+    t.integer "frequency"
+    t.date "start_date"
+    t.date "end_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["medicin_id"], name: "index_sheltered_medications_on_medicin_id"
+    t.index ["organization_id"], name: "index_sheltered_medications_on_organization_id"
+    t.index ["sheltered_id"], name: "index_sheltered_medications_on_sheltered_id"
   end
 
   create_table "sheltereds", force: :cascade do |t|
@@ -119,6 +158,13 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_14_234831) do
   add_foreign_key "role_users", "roles"
   add_foreign_key "role_users", "users"
   add_foreign_key "roles", "organizations"
+  add_foreign_key "sheltered_medication_logs", "medicins"
+  add_foreign_key "sheltered_medication_logs", "organizations"
+  add_foreign_key "sheltered_medication_logs", "sheltered_medications"
+  add_foreign_key "sheltered_medication_logs", "sheltereds"
+  add_foreign_key "sheltered_medications", "medicins"
+  add_foreign_key "sheltered_medications", "organizations"
+  add_foreign_key "sheltered_medications", "sheltereds"
   add_foreign_key "sheltereds", "organizations"
   add_foreign_key "sheltereds", "sheltereds"
   add_foreign_key "volunteer_work_schedules", "roles"
