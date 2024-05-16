@@ -20,4 +20,8 @@ class ShelteredPolicy < ApplicationPolicy
   def create?
     admin? || user.permissions.map(&:to_sym).include?(:sheltereds_create)
   end
+
+  def show?
+    admin? || user.permissions.map(&:to_sym).include?(:sheltereds_show)
+  end
 end
