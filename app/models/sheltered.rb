@@ -5,6 +5,7 @@ class Sheltered < ApplicationRecord
   belongs_to :sheltered, optional: true
   has_many :sheltereds, dependent: :nullify
   has_many :sheltered_medications, dependent: :destroy
+  has_many :sheltered_medical_logs, dependent: :destroy
 
   validates :name, presence: true
 

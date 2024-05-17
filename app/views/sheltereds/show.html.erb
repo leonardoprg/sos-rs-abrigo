@@ -164,7 +164,7 @@
   </div>
 </div>
 
-<div class="row g-3 mt-1 mb-5">
+<div class="row g-3 mt-1">
   <div class="col-sm-6">
     <label>
       <b><%= Sheltered.human_attribute_name(:medications) %>:</b> <%= @sheltered.medications %>
@@ -177,3 +177,17 @@
     </label>
   </div>
 </div>
+
+<hr />
+
+<div class='row mt-3'>
+  <div class='col-12 text-center'>
+    <span class='h3'>Histórico Médico</span>
+  </div>
+</div>
+
+<div class="row g-3 mt-1 mb-5">
+  <%= render 'sheltered_medical_logs/table', sheltered: @sheltered %>
+</div>
+
+<%= render 'sheltered_medical_logs/form', sheltered: @sheltered %>
