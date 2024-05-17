@@ -1,0 +1,16 @@
+<table class='table' id='sheltered-medical-logs-table'>
+  <thead>
+    <tr>
+      <th>Data</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% sheltered.sheltered_medical_logs.order('created_at DESC').each do |medical_log| %>
+      <tr>
+        <td><%= l(medical_log.created_at.to_date) %></td>
+        <td><%= medical_log.description %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
