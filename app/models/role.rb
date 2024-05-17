@@ -11,6 +11,7 @@ class Role < ApplicationRecord
     sheltereds_create
     sheltereds_update
     sheltereds_destroy
+    sheltereds_show
     work_schedules_list
     work_schedules_create
     work_schedules_update

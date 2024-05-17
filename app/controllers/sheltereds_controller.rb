@@ -5,6 +5,10 @@ class ShelteredsController < ApplicationController
     @sheltereds = current_user.organization.sheltereds.order(:name)
   end
 
+  def show
+    @sheltered = current_user.organization.sheltereds.find(params[:id])
+  end
+
   def new
     @sheltered = Sheltered.new
   end

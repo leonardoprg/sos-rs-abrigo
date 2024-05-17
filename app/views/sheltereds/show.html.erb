@@ -1,0 +1,179 @@
+<div class='pb-2'>
+  <span class='h3'>Abrigado</span>
+  <% if policy(@sheltered).edit? %>
+    <%= link_to 'Editar', edit_sheltered_path(@sheltered), class: 'float-end btn btn-primary' %>
+  <% end %>
+</div>
+<hr />
+
+<div class='row'>
+  <div class='col-12'>
+    <span class='h5'>Dados pessoais</span>
+  </div>
+</div>
+
+<div class="row g-3 mt-2">
+  <div class="col-sm-6">
+    <label>
+      <b><%= Sheltered.human_attribute_name(:name) %>:</b> <%= @sheltered.name %>
+    </label>
+  </div>
+
+  <div class="col-sm-6">
+    <label>
+      <b><%= Sheltered.human_attribute_name(:document) %>:</b> <%= @sheltered.document %>
+    </label>
+  </div>
+</div>
+
+<div class="row g-3 mt-1">
+  <div class="col-sm-6">
+    <label>
+      <b><%= Sheltered.human_attribute_name(:phone_number) %>:</b> <%= @sheltered.phone_number %>
+    </label>
+  </div>
+
+  <div class="col-sm-6">
+    <label>
+      <b><%= Sheltered.human_attribute_name(:birthdate) %>:</b> <%= @sheltered.birthdate ? l(@sheltered.birthdate) : '' %>
+    </label>
+  </div>
+</div>
+
+<div class="row g-3 mt-1">
+  <div class="col-sm-6">
+    <label>
+      <b><%= Sheltered.human_attribute_name(:gender) %>:</b> <%= @sheltered.gender ? t(@sheltered.gender, scope: [:activerecord, :attributes, :genders]) : '' %>
+    </label>
+  </div>
+
+  <div class="col-sm-6">
+    <label>
+      <b><%= Sheltered.human_attribute_name(:sheltered_id) %>:</b> <%= @sheltered.sheltered&.name %>
+    </label>
+  </div>
+</div>
+
+<hr />
+
+<div class='row'>
+  <div class='col-12'>
+    <span class='h5'>Dados imóvel</span>
+  </div>
+</div>
+
+<div class="row g-3 mt-1">
+  <div class="col-sm-6">
+    <label>
+      <b><%= Sheltered.human_attribute_name(:children_in_house) %>:</b> <%= @sheltered.children_in_house %>
+    </label>
+  </div>
+
+  <div class="col-sm-6">
+    <label>
+      <b><%= Sheltered.human_attribute_name(:adults_in_house) %>:</b> <%= @sheltered.adults_in_house %>
+    </label>
+  </div>
+</div>
+
+<div class="row g-3 mt-1">
+  <div class="col-sm-6">
+    <label>
+      <b><%= Sheltered.human_attribute_name(:animals_in_house) %>:</b> <%= @sheltered.animals_in_house %>
+    </label>
+  </div>
+
+  <div class="col-sm-6">
+    <label>
+      <b><%= Sheltered.human_attribute_name(:house_status) %>:</b> <%= @sheltered.house_status ? t(@sheltered.house_status, scope: [:activerecord, :attributes, :house_statuses]) : '' %>
+    </label>
+  </div>
+</div>
+
+<hr />
+
+<div class='row'>
+  <div class='col-12'>
+    <span class='h5'>Endereço</span>
+  </div>
+</div>
+
+<div class="row g-3 mt-1">
+  <div class="col-sm-6">
+    <label>
+      <b><%= Sheltered.human_attribute_name(:street) %>:</b> <%= @sheltered.street %>
+    </label>
+  </div>
+
+  <div class="col-sm-6">
+    <label>
+      <b><%= Sheltered.human_attribute_name(:street_number) %>:</b> <%= @sheltered.street_number %>
+    </label>
+  </div>
+</div>
+
+<div class="row g-3 mt-1">
+  <div class="col-sm-6">
+    <label>
+      <b><%= Sheltered.human_attribute_name(:district) %>:</b> <%= @sheltered.district %>
+    </label>
+  </div>
+
+  <div class="col-sm-6">
+    <label>
+      <b><%= Sheltered.human_attribute_name(:city) %>:</b> <%= @sheltered.city %>
+    </label>
+  </div>
+</div>
+
+<hr />
+
+<div class='row'>
+  <div class='col-12'>
+    <span class='h5'>Outras informações</span>
+  </div>
+</div>
+
+<div class="row g-3 mt-1">
+  <div class="col-sm-6">
+    <label>
+      <b><%= Sheltered.human_attribute_name(:government_assist) %>:</b>
+      <%= @sheltered.government_assist.present? ? (@sheltered.government_assist  ? 'Sim' : 'Não') : ''  %>
+    </label>
+  </div>
+
+  <div class="col-sm-6">
+    <label>
+      <b><%= Sheltered.human_attribute_name(:cadunico) %>:</b>
+      <%= @sheltered.cadunico.present? ? (@sheltered.cadunico  ? 'Sim' : 'Não') : ''  %>
+    </label>
+  </div>
+</div>
+
+<div class="row g-3 mt-1">
+  <div class="col-sm-6">
+    <label>
+      <b><%= Sheltered.human_attribute_name(:special_needs) %>:</b> <%= @sheltered.special_needs %>
+    </label>
+  </div>
+
+  <div class="col-sm-6">
+    <label>
+      <b><%= Sheltered.human_attribute_name(:disabilities) %>:</b> <%= @sheltered.disabilities %>
+    </label>
+  </div>
+</div>
+
+<div class="row g-3 mt-1 mb-5">
+  <div class="col-sm-6">
+    <label>
+      <b><%= Sheltered.human_attribute_name(:medications) %>:</b> <%= @sheltered.medications %>
+    </label>
+  </div>
+
+  <div class="col-sm-6">
+    <label>
+      <b><%= Sheltered.human_attribute_name(:departure_date) %>:</b> <%= @sheltered.departure_date ? l(@sheltered.departure_date) : '' %>
+    </label>
+  </div>
+</div>

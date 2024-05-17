@@ -13,9 +13,17 @@
   <tbody>
     <% @sheltereds.each do |sheltered| %>
       <tr>
-        <td><%= sheltered.name %></td>
+        <td>
+          <% if policy(sheltered).show? %>
+            <%= link_to sheltered.name, sheltered %>
+          <% else %>
+            <%= sheltered.name %>
+          <% end %>
+        </td>
         <td class='col-1'>
-          <%= link_to 'Editar', edit_sheltered_path(sheltered) %>
+          <% if policy(sheltered).edit? %>
+            <%= link_to 'Editar', edit_sheltered_path(sheltered) %>
+          <% end %>
         </td>
       </tr>
     <% end %>
