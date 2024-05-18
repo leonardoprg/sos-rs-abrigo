@@ -14,4 +14,20 @@ class Sheltered < ApplicationRecord
   enum house_status: { total_loss: 'total_loss', partial_loss: 'partial_loss', flooded: 'flooded', other: 'other' }
   enum gender: { male: 'male', female: 'female', uninformed: 'uninformed' }
   enum city: { cachoeirinha: 'cachoeirinha', porto_alegre: 'porto alegre', canoas: 'canoas', gravatai: 'gravatai' }
+
+  def children?
+    birthdate && birthdate >= 12.years.ago
+  end
+
+  def teenager?
+    birthdate && birthdate <= 12.years.ago && birthdate >= 18.years.ago
+  end
+
+  def adult?
+    birthdate && birthdate <= 18.years.ago && birthdate >= 65.years.ago
+  end
+
+  def elderly?
+    birthdate && birthdate <= 65.years.ago
+  end
 end

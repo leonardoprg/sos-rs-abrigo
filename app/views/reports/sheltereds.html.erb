@@ -21,16 +21,45 @@
     </tr>
   </thead>
   <tbody>
-    <% @sheltereds.each do |sheltered| %>
-      <tr>
-        <td><%= sheltered.name %></td>
-        <td><%= sheltered.birthdate ? l(sheltered.birthdate) : nil %></td>
-        <td><%= sheltered.document %></td>
-        <td><%= sheltered.city %></td>
-        <td><%= sheltered.sheltered&.phone_number %></td>
-        <td><%= sheltered.disabilities %></td>
-        <td><%= sheltered.special_needs %></td>
-      </tr>
+    <tr>
+      <td colspan='7' class='text-center'>
+        <b>Crianças: <%= children_report(@sheltereds).size %></b>
+      </td>
+    </tr>
+    <% children_report(@sheltereds).each do |sheltered| %>
+      <%= render 'sheltered_row', sheltered: sheltered %>
+    <% end %>
+    <tr>
+      <td colspan='7' class='text-center'>
+        <b>Adolescentes: <%= teenagers_report(@sheltereds).size %></b>
+      </td>
+    </tr>
+    <% teenagers_report(@sheltereds).each do |sheltered| %>
+      <%= render 'sheltered_row', sheltered: sheltered %>
+    <% end %>
+    <tr>
+      <td colspan='7' class='text-center'>
+        <b>Adultos: <%= adults_report(@sheltereds).size %></b>
+      </td>
+    </tr>
+    <% adults_report(@sheltereds).each do |sheltered| %>
+      <%= render 'sheltered_row', sheltered: sheltered %>
+    <% end %>
+    <tr>
+      <td colspan='7' class='text-center'>
+        <b>Idosos: <%= elderly_report(@sheltereds).size %></b>
+      </td>
+    </tr>
+    <% elderly_report(@sheltereds).each do |sheltered| %>
+      <%= render 'sheltered_row', sheltered: sheltered %>
+    <% end %>
+    <tr>
+      <td colspan='7' class='text-center'>
+        <b>Não especificado: <%= @sheltereds.filter { |s| s.birthdate.nil? }.size %></b>
+      </td>
+    </tr>
+    <% @sheltereds.filter { |s| s.birthdate.nil? }.each do |sheltered| %>
+      <%= render 'sheltered_row', sheltered: sheltered %>
     <% end %>
   </tbody>
 </table>
