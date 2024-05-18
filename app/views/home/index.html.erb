@@ -2,7 +2,7 @@
   <div class="col-md-12 pt-2">
     <div class="h-100 p-5 bg-light border rounded-3">
       <h5>
-        Número total de desabrigados: <%= current_user.organization.sheltereds.active.count %>
+        Número total de desabrigados: <%= @sheltereds.count %>
       </h5>
       <h5>
         Número total de famílias: <%= family_count %>
@@ -13,9 +13,24 @@
   <div class="col-md-12 pt-2">
     <div class="h-100 p-5 bg-light border rounded-3">
       <h5>
+        Abrigados por faixa etária:
+      </h5>
+      <p>
+        Crianças: <%= children_report(@sheltereds).size %><br/>
+        Adolescentes: <%= teenagers_report(@sheltereds).size %><br/>
+        Adultos: <%= adults_report(@sheltereds).size %><br/>
+        Idosos: <%= elderly_report(@sheltereds).size %><br/>
+        Não especificado: <%= @sheltereds.filter { |s| s.birthdate.nil? }.size %>
+      </p>
+    </div>
+  </div>
+
+  <div class="col-md-12 pt-2">
+    <div class="h-100 p-5 bg-light border rounded-3">
+      <h5>
         Abrigados por gênero:
       </h5>
-      <% current_user.organization.sheltereds.active.group(:gender).count.each do |gender, count| %>
+      <% @sheltereds.group(:gender).count.each do |gender, count| %>
         <%= gender.nil? ? 'Não especificado': t(gender, scope: [:activerecord, :attributes, :genders]) %>: <%= count %> <br/>
       <% end %>
     </div>
