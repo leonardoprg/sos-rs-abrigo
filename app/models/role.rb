@@ -16,6 +16,11 @@ class Role < ApplicationRecord
     work_schedules_create
     work_schedules_update
     work_schedules_destroy
+    items_list
+    items_create
+    items_update
+    items_destroy
+    items_show
   ].freeze
 
   belongs_to :organization

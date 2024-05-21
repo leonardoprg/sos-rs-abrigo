@@ -1,0 +1,35 @@
+<div class='pb-2'>
+  <span class='h3'>Itens</span>
+  <% if policy(Item).new? %>
+    <%= link_to 'Novo', new_item_path, class: 'float-end btn btn-primary' %>
+  <% end %>
+</div>
+<hr />
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Nome</th>
+      <th scope="col">Quantidade</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @items.each do |item| %>
+      <tr>
+        <td>
+          <% if policy(item).show? %>
+            <%= link_to item.name, item %>
+          <% else %>
+            <%= item.name %>
+          <% end %>
+        </td>
+        <td><%= item.quantity %></td>
+        <td class='col-1'>
+          <% if policy(item).edit? %>
+            <%= link_to 'Editar', edit_item_path(item) %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -2,6 +2,9 @@
 pt-BR:
   activerecord:
     attributes:
+      item:
+        name: Nome
+        quantity: Quantidade
       sheltered_medical_log:
         description: Descrição
       volunteer_work_schedule:

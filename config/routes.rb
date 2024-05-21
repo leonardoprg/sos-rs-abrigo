@@ -12,4 +12,7 @@ Rails.application.routes.draw do
   resources :reports, only: [] do
     get :sheltereds, on: :collection
   end
+  resources :items do
+    get :search, on: :collection
+  end
 end

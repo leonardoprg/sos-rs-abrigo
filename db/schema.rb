@@ -10,9 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_05_16_223320) do
+ActiveRecord::Schema[7.0].define(version: 2024_05_20_224430) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "items", force: :cascade do |t|
+    t.bigint "organization_id", null: false
+    t.string "name", null: false
+    t.integer "quantity", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["organization_id"], name: "index_items_on_organization_id"
+  end
 
   create_table "medicins", force: :cascade do |t|
     t.string "name", null: false
@@ -165,6 +174,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_16_223320) do
     t.index ["organization_id"], name: "index_work_schedules_on_organization_id"
   end
 
+  add_foreign_key "items", "organizations"
   add_foreign_key "role_users", "roles"
   add_foreign_key "role_users", "users"
   add_foreign_key "roles", "organizations"

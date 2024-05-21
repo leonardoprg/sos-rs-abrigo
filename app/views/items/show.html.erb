@@ -1,0 +1,23 @@
+<div class='pb-2'>
+  <span class='h3'>Item</span>
+  <% if policy(@item).edit? %>
+    <%= link_to 'Editar', edit_item_path(@item), class: 'float-end btn btn-primary' %>
+  <% end %>
+</div>
+<hr />
+
+<div class="row g-3 mt-2">
+  <div class="col-sm-6">
+    <label>
+      <b><%= Item.human_attribute_name(:name) %>:</b> <%= @item.name %>
+    </label>
+  </div>
+
+  <div class="col-sm-6">
+    <label>
+      <b><%= Item.human_attribute_name(:quantity) %>:</b> <%= @item.quantity %>
+    </label>
+  </div>
+</div>
+
+<hr />

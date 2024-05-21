@@ -1,0 +1,6 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+alcool_ulbra:
+  organization: ulbra
+  name: Alcool 50ml
+  quantity: 5
